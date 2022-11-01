@@ -20,4 +20,8 @@ RSpec.describe Race do
     candidate2 = race.register_candidate!({ name: 'Roberto R', party: :republican })
     expect(race.candidates).to eq([candidate1, candidate2])
   end
+
+  it 'returns if race is open' do
+    expect(race.open?).to eq(true)
+  end
 end

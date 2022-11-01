@@ -8,8 +8,6 @@ RSpec.describe Election do
     expect(election.races).to eq([])
   end
 
-  context ''
-
   it 'adds races' do
     race1 = Race.new('Virginia District 4 Representative')
     race2 = Race.new('Texas Governor')
@@ -44,11 +42,10 @@ RSpec.describe Election do
     10.times { candidate3.vote_for! }
     6.times { candidate4.vote_for! }
     6.times { candidate5.vote_for! }
-    expect(election.vote_counts).to eq({ 'Diana D' => 4, 
-                                         'Roberto R' => 1, 
-                                         'Diego D' => 10, 
+    expect(election.vote_counts).to eq({ 'Diana D' => 4,
+                                         'Roberto R' => 1,
+                                         'Diego D' => 10,
                                          'Rita R' => 6,
-                                         'Ida I' => 6 
-                                        })
+                                         'Ida I' => 6 })
   end
 end
