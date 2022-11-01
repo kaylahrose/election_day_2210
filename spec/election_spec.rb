@@ -8,15 +8,20 @@ RSpec.describe Election do
     expect(election.races).to eq([])
   end
 
+  context ''
+
   it 'adds races' do
     race1 = Race.new('Virginia District 4 Representative')
     race2 = Race.new('Texas Governor')
     election.add_race(race1)
     election.add_race(race2)
-    expect(election.races).to eq([race1, race2])
+    expect(election.races.length).to eq(2)
+    expect(election.races[0]).to be_instance_of(Race)
   end
 
   it 'registers candidates' do
+    race1 = Race.new('Virginia District 4 Representative')
+    race2 = Race.new('Texas Governor')
     candidate1 = race1.register_candidate!({ name: 'Diana D', party: :democrat })
     candidate2 = race1.register_candidate!({ name: 'Roberto R', party: :republican })
     candidate3 = race2.register_candidate!({ name: 'Diego D', party: :democrat })
