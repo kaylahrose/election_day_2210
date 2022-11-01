@@ -25,7 +25,7 @@ RSpec.describe Election do
     expect(election.candidates).to eq([candidate1, candidate2, candidate3, candidate4, candidate5])
   end
 
-  it 'votes' do
+  xit 'votes' do
     4.times { candidate1.vote_for! }
     1.times { candidate2.vote_for! }
     10.times { candidate3.vote_for! }
