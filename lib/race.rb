@@ -10,7 +10,5 @@ class Race
   def register_candidate!(candidate)
     candidates << Candidate.new(candidate)
     candidates.last
-
-
   end
 end
