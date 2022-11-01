@@ -29,4 +29,13 @@ class Election
     end
     tally
   end
+
+  def winners
+    # require 'pry'; binding.pry
+    races.map do |race|
+      next if race.winner.nil?
+
+      race.winner
+    end
+  end
 end

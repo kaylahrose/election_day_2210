@@ -48,4 +48,20 @@ RSpec.describe Election do
                                          'Rita R' => 6,
                                          'Ida I' => 6 })
   end
+
+  xit 'returns all election winners' do
+    race1 = Race.new('Virginia District 4 Representative')
+    race2 = Race.new('Texas Governor')
+    candidate1 = race1.register_candidate!({ name: 'Diana D', party: :democrat })
+    candidate2 = race1.register_candidate!({ name: 'Roberto R', party: :republican })
+    candidate3 = race2.register_candidate!({ name: 'Diego D', party: :democrat })
+    candidate4 = race2.register_candidate!({ name: 'Rita R', party: :republican })
+    candidate5 = race2.register_candidate!({ name: 'Ida I', party: :independent })
+    4.times { candidate1.vote_for! }
+    1.times { candidate2.vote_for! }
+    10.times { candidate3.vote_for! }
+    6.times { candidate4.vote_for! }
+    6.times { candidate5.vote_for! }
+    expect(election.winners).to eq([])
+  end
 end
