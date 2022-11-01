@@ -42,12 +42,29 @@ RSpec.describe Race do
     candidate4 = race2.register_candidate!({ name: 'Rita R', party: :republican })
     candidate5 = race2.register_candidate!({ name: 'Ida I', party: :independent })
     4.times { candidate1.vote_for! }
-    1.times { candidate2.vote_for! }
+    4.times { candidate2.vote_for! }
     10.times { candidate3.vote_for! }
     6.times { candidate4.vote_for! }
     6.times { candidate5.vote_for! }
     race2.close!
 
     expect(race2.winner).to eq(candidate3)
+
+    race1.close!
+    # require 'pry'; binding.pry
+    expect(race1.winner).to be_instance_of(Candidate)
+  end
+
+  it 'returns if tie' do
+    race1 = Race.new('Virginia District 4 Representative')
+    candidate1 = race1.register_candidate!({ name: 'Diana D', party: :democrat })
+    candidate2 = race1.register_candidate!({ name: 'Roberto R', party: :republican })
+    4.times { candidate1.vote_for! }
+    4.times { candidate2.vote_for! }
+
+    expect(race1.tie?).to eq(true)
+
+
+
   end
 end

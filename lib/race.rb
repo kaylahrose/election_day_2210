@@ -25,11 +25,25 @@ class Race
     if open?
       false
     else
+      # require 'pry'; binding.pry
       candidates.max_by do |candidate|
         candidate.votes
-        # require 'pry'
-        # binding.pry
       end
+    end
+  end
+
+  def tie?
+    votes = candidates.map { |candidate| candidate.votes }
+    most_votes = votes.max
+    # require 'pry'; binding.pry
+    first_index = votes.index(most_votes)
+
+    index = votes.rindex(most_votes)
+    leading_votes = votes.each_index.select { |i| votes[i] == most_votes }
+    if leading_votes.count > 1
+        true
+    else
+        false
     end
   end
 end
