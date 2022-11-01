@@ -24,4 +24,10 @@ RSpec.describe Race do
   it 'returns if race is open' do
     expect(race.open?).to eq(true)
   end
+
+  it 'closes race' do
+    expect(race.open?).to eq(true)
+    race.close!
+    expect(race.open?).to eq(false)
+  end
 end

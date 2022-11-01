@@ -14,6 +14,10 @@ class Race
   end
 
   def open?
-    @open
+    open
+  end
+
+  def close!
+    @open = false
   end
 end
