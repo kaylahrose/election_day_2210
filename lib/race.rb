@@ -20,4 +20,16 @@ class Race
   def close!
     @open = false
   end
+
+  def winner
+    if open?
+      false
+    else
+      candidates.max_by do |candidate|
+        candidate.votes
+        # require 'pry'
+        # binding.pry
+      end
+    end
+  end
 end
