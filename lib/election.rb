@@ -22,4 +22,13 @@ class Election
         race.candidates
     end
   end
+
+  def vote_counts
+    tally = {}
+    candidates.each do |candidate|
+    # require 'pry'; binding.pry
+    tally[candidate.name] = candidate.votes
+    end
+    tally
+  end
 end
