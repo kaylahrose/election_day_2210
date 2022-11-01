@@ -11,7 +11,7 @@ RSpec.describe Race do
   it 'registers candidates' do
     candidate1 = race.register_candidate!({ name: 'Diana D', party: :democrat })
     expect(candidate1).to be_instance_of(Candidate)
-    expect(candidate1.anem).to eq('Diana D')
+    expect(candidate1.name).to eq('Diana D')
     expect(candidate1.party).to eq(:democrat)
   end
 
