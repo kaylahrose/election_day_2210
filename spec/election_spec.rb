@@ -27,10 +27,11 @@ RSpec.describe Election do
     candidate3 = race2.register_candidate!({ name: 'Diego D', party: :democrat })
     candidate4 = race2.register_candidate!({ name: 'Rita R', party: :republican })
     candidate5 = race2.register_candidate!({ name: 'Ida I', party: :independent })
-    expect(election.candidates).to eq([candidate1, candidate2, candidate3, candidate4, candidate5])
+    expect(election.candidates.length).to eq(5)
+    expect(election.candidates[0]).to be_instance_of(Candidate)
   end
 
-  xit 'votes' do
+  it 'votes' do
     4.times { candidate1.vote_for! }
     1.times { candidate2.vote_for! }
     10.times { candidate3.vote_for! }

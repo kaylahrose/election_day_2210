@@ -6,9 +6,8 @@ class Election
 
   def initialize(year)
     @year = year
-    # @races = require 'pry'; binding.pry
-    # ObjectSpace.each_object(Race).to_a
   end
+
   def races
     ObjectSpace.each_object(Race).to_a
   end
@@ -17,7 +16,10 @@ class Election
     races << race
   end
 
-#   def candidates
-#     require 'pry'; binding.pry
-#   end
+  def candidates
+    # require 'pry'; binding.pry
+    races.flat_map do |race|
+        race.candidates
+    end
+  end
 end
