@@ -14,8 +14,7 @@ RSpec.describe Candidate do
 
   it 'votes' do
     expect(diana.votes).to eq(0)
-    3.times diana.vote_for!
-    expect
+    3.times { diana.vote_for! }
     expect(diana.votes).to eq(3)
     diana.vote_for!
     expect(diana.votes).to eq(4)
